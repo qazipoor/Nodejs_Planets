@@ -29,7 +29,9 @@ fs.createReadStream(csvFilePath)
         console.error(`Error reading file: ${err.message}`);
     })
     .on('end', () => {
-        console.log(habitablePlanets);
+        habitablePlanets.forEach((planet, idx) => {
+            console.log(idx+1, planet['kepler_name']);
+        })
         console.log(`${habitablePlanets.length} habitable planets found.`);
     })
 
